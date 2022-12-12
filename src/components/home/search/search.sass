@@ -1,0 +1,19 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+
+.search
+    align-items: center
+    display: flex
+    flex-direction: row
+    justify-content: center
+    padding: 1%
+    & label
+        color: colours.$roman-silver
+        font-family: fonts.$roboto
+        font-size: 0.8rem
+        padding: 1%
+        text-transform: capitalize
+    & input
+        text-align: left
+        &:focus::placeholder
+            color: transparent

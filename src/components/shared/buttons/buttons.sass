@@ -1,0 +1,56 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+@use 'assets/styles/styles'
+
+.blueButton
+    background-color: colours.$windows-blue
+    border: 0.1em solid colours.$gainsboro
+    color: colours.$gainsboro
+
+.homeButton
+    font-family: fonts.$lato
+    font-size: 1rem
+    margin: 0 auto
+    padding: 10%
+    width: 120%
+    &:hover
+        background-color: colours.$dark-white
+
+.homeButton,
+.whiteButton
+    background-color: colours.$gainsboro
+    border: 0.1em solid colours.$windows-blue
+    color: colours.$windows-blue
+
+.blueButton,
+.whiteButton
+    font-family: fonts.$poppins
+    font-size: 0.8rem
+    margin: 5% auto 2%
+    padding: 1%
+    width: 75%
+    &:hover
+        background-color: colours.$linen
+
+.blueButton,
+.homeButton,
+.whiteButton
+    cursor: pointer
+    display: block
+    text-align: center
+    &:link
+        color: colours.$windows-blue
+    &:visited
+        color: colours.$medium-blue
+    &:hover
+        color: colours.$royal-blue
+    &:active
+        color: colours.$blue-whale
+
+@media screen and (max-width: 850px)
+    .blueButton,
+    .whiteButton
+        font-size: 0.6rem
+
+    .homeButton
+        font-size: 0.8rem

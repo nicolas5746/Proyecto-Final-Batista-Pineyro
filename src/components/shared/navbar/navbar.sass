@@ -1,0 +1,48 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+
+.header
+    left: 0
+    position: fixed
+    right: 0
+    top: 0
+    z-index: 2
+
+.bg-gray-800
+    border-radius: 0 0 50em 50em
+
+.flex
+    & a
+        color: colours.$roman-silver
+        font-family: fonts.$roboto
+        font-size: 1rem
+        &:hover
+            color: colours.$gainsboro
+            transform: scale(1.05)
+
+.space-x-4,
+.space-y-1
+    text-transform: capitalize
+
+#title
+    color: colours.$crimson
+    font-family: fonts.$bungee-inline
+    font-size: 1.5rem
+    font-weight: 400
+    text-align: center
+    &:hover
+        color: colours.$medium-blue
+        font-weight: 800
+
+#cart
+    color: colours.$gainsboro
+
+#logo
+    width: 5%
+
+@media screen and (max-width:850px)
+    .bg-gray-800
+        border-radius: 0 0 2.5em 2.5em
+
+    #logo
+        display: none

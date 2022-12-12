@@ -1,0 +1,23 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+@use 'assets/styles/styles'
+
+#greeting
+    animation: greeting 3s linear infinite
+    background-clip: text
+    background-color: colours.$ferrari-red
+    background-image: linear-gradient(15deg, colours.$purple 10%, colours.$ferrari-red 33%, colours.$crimson-red 45%, colours.$maroon 66%, colours.$purple-maroon 100%)
+    background-size: 200% auto
+    border: 0.1em
+    border-radius: 0.5em
+    color: transparent
+    font-family: fonts.$poppins
+    font-size: 1.5rem
+    font-weight: 600
+    padding: 1%
+    text-align: center
+    text-shadow: 0.1em 0.3em 0.8em colours.$night-blue
+
+@keyframes greeting
+    to
+        background-position: 200%

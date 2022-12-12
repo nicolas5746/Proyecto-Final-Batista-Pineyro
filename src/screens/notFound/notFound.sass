@@ -1,0 +1,25 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+@use 'assets/styles/styles'
+
+body
+    background-color: colours.$linen
+
+.notFound
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 15%
+    & h1
+        font-size: 5rem
+        font-weight: 600
+    & p
+        font-size: 2rem
+        font-weight: 400
+        margin-bottom: 2%
+    & h1,
+    & p
+        color: colours.$windows-blue
+        font-family: fonts.$lato
+        text-align: center

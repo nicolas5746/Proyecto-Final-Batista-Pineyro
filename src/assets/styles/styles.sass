@@ -1,0 +1,109 @@
+@use './colours'
+@use './fonts'
+    
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+.mt-4
+    align-items: center
+    flex-direction: column
+    justify-content: center
+
+.flex
+    align-items: center
+    justify-content: space-around
+        
+.container
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 8%
+
+.card
+    background-color: colours.$gainsboro
+    padding: 3%
+
+.yourCart
+    border: 0.1em solid colours.$windows-blue
+    border-radius: 1rem
+    font-family: fonts.$bungee
+    margin-bottom: 5%
+    padding: 2%
+    text-align: center
+    width: 100%
+
+.name
+    color: colours.$windows-blue
+    font-size: 1rem
+
+.colour
+    color: colours.$roman-silver
+
+.category
+    color: colours.$red-blood
+
+.price
+    color: colours.$tomato-sauce-red
+    padding: 1%
+
+.greyHeader
+    color: colours.$roman-silver
+
+.yourCart,
+.name
+    color: colours.$windows-blue
+
+.name,
+.subTotalPrice
+    font-weight: 600
+
+.yourCart,
+.price
+    text-transform: uppercase
+
+.yourCart,
+.totalPrice
+    font-weight: 800
+
+.yourCart,
+.brand,
+.price
+    font-size: 1.5rem
+
+.colour,
+.category,
+.greyHeader
+    font-size: 0.8rem
+
+.brand,
+.subTotalPrice,
+.totalPrice
+    color: colours.$tomato-sauce-red
+
+.brand,
+.subTotalPrice,
+.totalPrice
+    padding: 3%
+    text-align: center
+
+.brand,
+.name,
+.colour,
+.category
+    padding: 1%
+    text-transform: capitalize
+
+@media screen and (max-width: 649px)
+    .container
+        padding: 25%
+
+@media screen and (min-width: 650px) and (max-width: 849px)
+    .container
+        padding: 12%
+
+@media screen and (min-width: 850px) and (max-width: 1200px)
+    .container
+        padding: 10%
