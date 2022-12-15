@@ -27,9 +27,7 @@ const ItemCollection = () => {
     }, [id]);
 
     return (
-        <div>
-            <ItemDetailContainer product={product} />
-        </div>
+        <ItemDetailContainer product={product} />
     );
 }
 

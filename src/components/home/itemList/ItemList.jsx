@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
-//import getFirestore from 'middlewares/getFirestore';
 import Greeting from 'components/home/greeting/Greeting';
 import Item from 'components/home/item/Item';
 import Search from 'components/home/search/Search';
@@ -49,9 +48,8 @@ const ItemList = () => {
                     products
                         .filter((p) => p.category === sortBy)
                         .filter((p) => p.brand.toLowerCase().match(filter.toLowerCase()))
-                        .map((product, i) =>
+                        .map((product) =>
                             <Item
-                                key={i}
                                 id={product.id}
                                 brand={product.brand}
                                 name={product.name}
@@ -62,9 +60,8 @@ const ItemList = () => {
                     :
                     products
                         .filter((p) => p.brand.toLowerCase().match(filter.toLowerCase()))
-                        .map((product, i) =>
+                        .map((product) =>
                             <Item
-                                key={i}
                                 id={product.id}
                                 brand={product.brand}
                                 name={product.name}

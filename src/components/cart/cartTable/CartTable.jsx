@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from 'contexts/contexts';
-import { AddButton, RemoveButton, BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
+import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
 import CartBadge from 'components/cart/cartBadge/CartBadge';
-import './cartTable.sass';
 
 const CartTable = ({ currency }) => {
 
@@ -34,11 +34,9 @@ const CartTable = ({ currency }) => {
                             />
                         </div>
                         <div className='mt-4 flex justify-between'>
-                            <CartBadge count={product.quantity} />
-                            <div className='addedItem'>
-                                <RemoveButton />
-                                <AddButton />
-                            </div>
+                            <Link to={`/product/${product.id}`}>
+                                <CartBadge count={product.quantity} />
+                            </Link>
                             <h2 className='brand'>{product.brand}</h2>
                             <p className='name'>{product.name}</p>
                             <p className='category'>{product.category}</p>

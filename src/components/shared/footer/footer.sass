@@ -1,0 +1,32 @@
+@use 'assets/styles/colours'
+@use 'assets/styles/fonts'
+@use 'assets/styles/styles'
+
+.footer
+    align-items: center
+    background-color: colours.$transparent-grey
+    bottom: 0
+    display: flex
+    height: 10%
+    justify-content: center
+    left: 0
+    position: fixed
+    right: 0
+    width: 100%
+    z-index: 2
+    & p
+        color: colours.$linen
+        font-family: fonts.$lato
+        font-size: 1rem
+        position: relative
+        text-align: center
+
+@media screen and (max-width: 599px)
+    .footer
+        & p
+            font-size: 0.6rem
+
+@media screen and (min-width: 600px) and (max-width: 1199px)
+    .footer
+        & p
+            font-size: 0.8rem

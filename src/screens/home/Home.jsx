@@ -2,6 +2,7 @@ import ItemListContainer from 'components/home/itemListContainer/ItemListContain
 import './home.sass';
 
 const Home = () => {
+
   return (
     <main className='home'>
       <ItemListContainer />

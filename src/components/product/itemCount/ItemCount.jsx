@@ -9,7 +9,7 @@ import './itemCount.sass';
 const ItemCount = ({ add, remove, itemCount, buyItem, addToCart }) => {
 
     return (
-        <div className='button'>
+        <div className='itemCount'>
             <Link to={`/cart`}>
                 <CartBadge count={itemCount} />
             </Link>

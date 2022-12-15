@@ -7,6 +7,7 @@ import CartWidget from 'components/cart/cartWidget/CartWidget';
 import './navbar.sass';
 
 const Navbar = () => {
+    
     const [navbarItems, setNavbarItems] = React.useState([]);
     
     let title=`Tienda Americana`;
@@ -26,7 +27,7 @@ const Navbar = () => {
         <header className='header'>
             <Disclosure as='nav' className='bg-gray-800'>
                 {({ open }) => (
-                    <div>
+                    <>
                         <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
                             <div className='relative flex h-16 items-center justify-between'>
                                 <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
@@ -87,7 +88,7 @@ const Navbar = () => {
                                     ))}
                             </div>
                         </Disclosure.Panel>
-                    </div>
+                    </>
                 )}
             </Disclosure>
         </header>

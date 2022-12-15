@@ -5,13 +5,16 @@ import Home from 'screens/home/Home';
 import Product from 'screens/product/Product';
 import Cart from 'screens/cart/Cart';
 import NotFound from 'screens/notFound/NotFound';
+import Footer from 'components/shared/footer/Footer';
 
 const Router = () => {
+
     return (
-        <div>
+        <>
             <BrowserRouter>
                 <CartProvider>
                     <Navbar />
+                    <Footer />
                     <Routes>
                         <Route path={`/`} element={<Home />} />
                         <Route path={`/category/:sortBy`} element={<Home />} />
@@ -21,7 +24,7 @@ const Router = () => {
                     </Routes>
                 </CartProvider>
             </BrowserRouter>
-        </div>
+        </>
     );
 }
 

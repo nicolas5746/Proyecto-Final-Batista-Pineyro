@@ -3,7 +3,9 @@ import { HomeButton } from 'components/shared/buttons/Buttons';
 import './notFound.sass';
 
 const NotFound = () => {
+
     let text = [`Volver`, `404`, `Página no encontrada`];
+    
     return (
         <div className='notFound'>
             <h1>{text[1]}</h1>
