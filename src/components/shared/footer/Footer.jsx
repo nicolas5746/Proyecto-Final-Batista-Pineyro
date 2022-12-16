@@ -5,11 +5,11 @@ const Footer = () => {
     let text = [`Nicolás Batista Piñeyro`, 2022];
 
     return (
-        <footer>
-            <div className='footer'>
+        <div className='footer'>
+            <footer>
                 <p>{text[0]} &copy; {text[1]}</p>
-            </div>
-        </footer>
+            </footer>
+        </div>
     );
 }
 

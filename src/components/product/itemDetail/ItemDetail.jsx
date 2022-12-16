@@ -23,7 +23,8 @@ const ItemDetail = ({ product, currency }) => {
                 colour: product.colour,
                 price: product.price,
                 stock: product.stock,
-                quantity: itemCount,
+                count: itemCount,
+                setCount: setItemCount,
             });
         }
     }
@@ -48,17 +49,17 @@ const ItemDetail = ({ product, currency }) => {
                     <p className='greyHeader'>{`Código del artículo:`} {product.id}</p>
                     <p className='greyHeader'>{`Stock disponible:`} {product.stock}</p>
                 </div>
-                {selectedCount ? (
-                    <>
+                {selectedCount ?
+                    (<>
                         <Link to='/cart'>
                             <BlueButton text={`Finalizar compra`} />
                         </Link>
                         <Link to='/'>
                             <WhiteButton text={`Continuar comprando`} />
                         </Link>
-                    </>
-                ) : (
-                    <>
+                    </>)
+                    :
+                    (<>
                         <ItemCount
                             add={() => handleAddItem(itemCount, setItemCount, product.stock)}
                             remove={() => handleRemoveItem(itemCount, setItemCount)}
@@ -69,8 +70,8 @@ const ItemDetail = ({ product, currency }) => {
                         <Link to='/'>
                             <BlueButton text={`Atrás`} style={buttonStyle} />
                         </Link>
-                    </>
-                )}
+                    </>)
+                }
             </div>
         </div>
     );

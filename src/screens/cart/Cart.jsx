@@ -13,14 +13,14 @@ const Cart = () => {
 
     if (cartSize === 0) {
         return (
-            <>
+            <div className='cart'>
                 <div className='noItem'>
                     {`Tu carrito está vacío!`}
                 </div>
                 <Link to='/'>
                     <BlueButton text={`Continuar comprando`} style={buttonStyle} />
                 </Link>
-            </>
+            </div>
         );
     }
 

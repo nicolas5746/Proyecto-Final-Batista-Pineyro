@@ -11,7 +11,7 @@ const CartTable = ({ currency }) => {
         handleRemoveFromCart,
         handleClearCart,
         handleSubTotalPrice,
-        handleTotalPrice
+        handleTotalPrice,
     }
         = React.useContext(CartContext);
 
@@ -21,34 +21,33 @@ const CartTable = ({ currency }) => {
         <div className='container'>
             <h1 className='yourCart'>{`tu carrito`}</h1>
             {cart.map((product) => (
-                <>
-                    <div className='card'>
-                        <div className='min-h-80 text-gray-500 aspect-w-1 aspect-h-1 w-full overflow-hidden
-                                        rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80'
-                        >
-                            <img
-                                className='h-full w-full object-cover object-center lg:h-full lg:w-full'
-                                src={product.image}
-                                alt={product.name}
-                                title={product.name}
-                            />
-                        </div>
-                        <div className='mt-4 flex justify-between'>
-                            <Link to={`/product/${product.id}`}>
-                                <CartBadge count={product.quantity} />
-                            </Link>
-                            <h2 className='brand'>{product.brand}</h2>
-                            <p className='name'>{product.name}</p>
-                            <p className='category'>{product.category}</p>
-                            <p className='colour'>{`Color:`} {product.colour}</p>
-                            <p className='greyHeader'>{`Precio unitario:`} {currency} {product.price}</p>
-                        </div>
-                        <div className='subTotalPrice'>
-                            {`Sub-total:`} {currency} {handleSubTotalPrice(product.quantity, product.price)}
-                        </div>
-                        <BlueButton text={`Quitar de la lista`} onClick={() => handleRemoveFromCart(product.id)} />
+                <div className='card'>
+                    <div className='min-h-80 text-gray-500 aspect-w-1 aspect-h-1
+                                w-full overflow-hidden rounded-md bg-gray-200
+                                group-hover:opacity-75 lg:aspect-none lg:h-80'
+                    >
+                        <img
+                            className='h-full w-full object-cover object-center lg:h-full lg:w-full'
+                            src={product.image}
+                            alt={product.name}
+                            title={product.name}
+                        />
                     </div>
-                </>
+                    <div className='mt-4 flex justify-between'>
+                        <Link to={`/product/${product.id}`}>
+                            <CartBadge count={product.count} />
+                        </Link>
+                        <h2 className='brand'>{product.brand}</h2>
+                        <p className='name'>{product.name}</p>
+                        <p className='category'>{product.category}</p>
+                        <p className='colour'>{`Color:`} {product.colour}</p>
+                        <p className='greyHeader'>{`Precio unitario:`} {currency} {product.price}</p>
+                    </div>
+                    <div className='subTotalPrice'>
+                        {`Sub-total:`} {currency} {handleSubTotalPrice(product)}
+                    </div>
+                    <BlueButton text={`Quitar de la lista`} onClick={() => handleRemoveFromCart(product.id)} />
+                </div>
             ))}
             <div className='totalPrice'>
                 {`Precio Total:`} {currency} {handleTotalPrice()}

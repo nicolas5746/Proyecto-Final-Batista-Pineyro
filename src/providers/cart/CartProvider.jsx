@@ -31,15 +31,15 @@ const CartProvider = ({ children }) => {
         setCart([]);
     }
 
-    const handleSubTotalPrice = (quantity, price) => {
-        let subTotal = quantity * price;
+    const handleSubTotalPrice = (item) => {
+        let subTotal = item.count * item.price;
         return subTotal;
     }
 
     const handleTotalPrice = () => {
         let total = 0;
         cart.map((item) => {
-            return total += item.price * item.quantity;
+            return total += item.price * item.count;
         });
         return total;
     }

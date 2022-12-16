@@ -11,6 +11,7 @@ const ItemCollection = () => {
     let { id } = useParams();
 
     React.useEffect(() => {
+
         const db = getFirestore();
 
         const itemCollectionRef = collection(db, 'ItemCollection');
