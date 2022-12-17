@@ -9,7 +9,7 @@ const ItemDetail = ({ product, currency }) => {
     const [itemCount, setItemCount] = React.useState(0);
     const [selectedCount, setSelectedCount] = React.useState(false);
 
-    let buttonStyle = { width: '25%' }
+    let btnStyle = { width: '25%' }
 
     const handleBuyItem = () => {
         if (itemCount > 0) {
@@ -68,7 +68,7 @@ const ItemDetail = ({ product, currency }) => {
                             addToCart={`agregrar al carrito`}
                         />
                         <Link to='/'>
-                            <BlueButton text={`Atrás`} style={buttonStyle} />
+                            <BlueButton text={`Atrás`} style={btnStyle} />
                         </Link>
                     </>)
                 }

@@ -9,7 +9,7 @@ const Cart = () => {
 
     const { cartSize } = React.useContext(CartContext);
 
-    let buttonStyle = { width: '15%' }
+    let btnStyle = { width: '15%' }
 
     if (cartSize === 0) {
         return (
@@ -18,7 +18,7 @@ const Cart = () => {
                     {`Tu carrito está vacío!`}
                 </div>
                 <Link to='/'>
-                    <BlueButton text={`Continuar comprando`} style={buttonStyle} />
+                    <BlueButton text={`Continuar comprando`} style={btnStyle} />
                 </Link>
             </div>
         );

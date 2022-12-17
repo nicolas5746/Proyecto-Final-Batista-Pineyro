@@ -1,27 +1,27 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Disclosure, Menu } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { getNavbarItems } from 'middlewares/getData';
 import CartWidget from 'components/cart/cartWidget/CartWidget';
 import './navbar.sass';
 
 const Navbar = () => {
-    
-    const [navbarItems, setNavbarItems] = React.useState([]);
-    
-    let title=`Tienda Americana`;
-    let logoSrc= `https://raw.githubusercontent.com/nicolas5746/PreEntrega1-Batista-Pineyro/master/public/images/logo.png`;
-    let logoAlt=`Tienda Americana`;
-    let logoTitle= `Tienda Americana`;
-    
+
+    const navbar = [
+        { category: 'dama' },
+        { category: 'caballero' },
+        { category: 'unisex' },
+        { category: 'accesorios' }
+    ];
+
+    let home = `Inicio`;
+    let title = `Tienda Americana`;
+    let logoSrc = `https://raw.githubusercontent.com/nicolas5746/PreEntrega1-Batista-Pineyro/master/public/images/logo.png`;
+    let logoAlt = `Tienda Americana`;
+    let logoTitle = `Tienda Americana`;
+
     const classNames = (...classes) => {
         return classes.filter(Boolean).join(' ');
     }
-
-    React.useEffect(() => {
-        getNavbarItems(setNavbarItems);
-    }, []);
 
     return (
         <header className='header'>
@@ -46,20 +46,27 @@ const Navbar = () => {
                                     </Link>
                                     <div className='hidden sm:ml-10 sm:block'>
                                         <div className='flex space-x-4'>
-                                            {navbarItems
-                                                .map((item) => (
-                                                    <Link
-                                                        key={item.name}
-                                                        to={`/category/${item.name}`}
-                                                        className={classNames(
-                                                            false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-red-700 hover:text-white',
-                                                            'px-3 py-2 rounded-md text-sm font-medium md:capitalize'
-                                                        )}
-                                                        aria-current={false ? 'page' : undefined}
-                                                    >
-                                                        {item.name}
-                                                    </Link>
-                                                ))}
+                                            <Link to={`/`}>
+                                                <div className={classNames(false ?
+                                                    'bg-gray-900 text-white' : 'text-gray-300 hover:bg-red-700 hover:text-white',
+                                                    'px-3 py-2 rounded-md text-sm font-medium md:capitalize')}
+                                                >
+                                                    {home}
+                                                </div>
+                                            </Link>
+                                            {navbar.map((item) => (
+                                                <Link
+                                                    key={item.category}
+                                                    to={`/category/${item.category}`}
+                                                    className={classNames(
+                                                        false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-red-700 hover:text-white',
+                                                        'px-3 py-2 rounded-md text-sm font-medium md:capitalize'
+                                                    )}
+                                                    aria-current={false ? 'page' : undefined}
+                                                >
+                                                    {item.category}
+                                                </Link>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -72,20 +79,28 @@ const Navbar = () => {
                         </div>
                         <Disclosure.Panel className='sm:hidden'>
                             <div className='space-y-1 px-2 pt-2 pb-3'>
-                                {navbarItems
-                                    .map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            to={`/category/${item.name}`}
-                                            className={classNames(
-                                                false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                'block px-3 py-2 rounded-md text-base font-medium'
-                                            )}
-                                            aria-current={false ? 'page' : undefined}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
+                                <Link to={`/`}>
+                                    <div className={classNames(
+                                        false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                        'block px-3 py-2 rounded-md text-base font-medium'
+                                    )}
+                                    >
+                                        {home}
+                                    </div>
+                                </Link>
+                                {navbar.map((item) => (
+                                    <Link
+                                        key={item.category}
+                                        to={`/category/${item.category}`}
+                                        className={classNames(
+                                            false ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                            'block px-3 py-2 rounded-md text-base font-medium'
+                                        )}
+                                        aria-current={false ? 'page' : undefined}
+                                    >
+                                        {item.category}
+                                    </Link>
+                                ))}
                             </div>
                         </Disclosure.Panel>
                     </>

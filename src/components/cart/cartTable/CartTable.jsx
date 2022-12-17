@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from 'contexts/contexts';
 import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
 import CartBadge from 'components/cart/cartBadge/CartBadge';
+import './cartTable.sass';
 
 const CartTable = ({ currency }) => {
 
@@ -15,7 +16,8 @@ const CartTable = ({ currency }) => {
     }
         = React.useContext(CartContext);
 
-    let buttonStyle = { width: '15%' }
+    let confirmBtnStyle = { width: '20%' }
+    let clearBtnStyle = { width: '15%' }
 
     return (
         <div className='container'>
@@ -27,7 +29,8 @@ const CartTable = ({ currency }) => {
                                 group-hover:opacity-75 lg:aspect-none lg:h-80'
                     >
                         <img
-                            className='h-full w-full object-cover object-center lg:h-full lg:w-full'
+                            className='h-full w-full object-cover
+                                       object-center lg:h-full lg:w-full'
                             src={product.image}
                             alt={product.name}
                             title={product.name}
@@ -52,7 +55,8 @@ const CartTable = ({ currency }) => {
             <div className='totalPrice'>
                 {`Precio Total:`} {currency} {handleTotalPrice()}
             </div>
-            <WhiteButton text={`Vaciar carrito`} style={buttonStyle} onClick={() => handleClearCart()} />
+            <BlueButton text={`Confirmar compra`} style={confirmBtnStyle} />
+            <WhiteButton text={`Vaciar carrito`} style={clearBtnStyle} onClick={() => handleClearCart()} />
         </div>
     );
 }
