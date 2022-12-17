@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import './item.sass';
 
-const Item = ({ id, brand, name, imageSrc, currency, price }) => {
+const Item = ({ id, brand, name, imageSrc, currency, price, addItem }) => {
     return (
         <div className='group relative'>
             <Link to={`/product/${id}`}>

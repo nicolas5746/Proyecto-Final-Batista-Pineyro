@@ -1,4 +1,4 @@
-import ItemCollection from 'components/product/itemCollection/ItemCollection';
+import ItemCollection from 'components/item/itemCollection/ItemCollection';
 
 const Product = () => {
 

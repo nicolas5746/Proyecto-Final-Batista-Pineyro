@@ -3,9 +3,8 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getAllProducts } from 'middlewares/getData';
 import Greeting from 'components/home/greeting/Greeting';
-import Item from 'components/home/item/Item';
+import Item from 'components/item/item/Item';
 import Search from 'components/home/search/Search';
-import './itemList.sass';
 
 const ItemList = () => {
     const [products, setProducts] = React.useState([]);

@@ -11,9 +11,22 @@
     flex-direction: column
     justify-content: center
 
+.mt-6
+    background-color: colours.$gainsboro
+    padding: 3%
+
 .flex
     align-items: center
     justify-content: space-around
+
+.container
+    align-items: center
+    background-color: colours.$linen
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin: 0 auto
+    padding: 8%
 
 .card
     background-color: colours.$gainsboro
@@ -59,3 +72,15 @@
 .category
     padding: 1%
     text-transform: capitalize
+
+@media screen and (max-width: 649px)
+    .container
+        padding: 25%
+
+@media screen and (min-width: 650px) and (max-width: 849px)
+    .container
+        padding: 12%
+
+@media screen and (min-width: 850px) and (max-width: 1200px)
+    .container
+        padding: 10%

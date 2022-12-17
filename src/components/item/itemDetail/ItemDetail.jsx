@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from 'contexts/contexts';
 import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
-import ItemCount from 'components/product/itemCount/ItemCount';
+import ItemCount from 'components/item/itemCount/ItemCount';
 
 const ItemDetail = ({ product, currency }) => {
     const { handleAddToCart, handleAddItem, handleRemoveItem } = React.useContext(CartContext);

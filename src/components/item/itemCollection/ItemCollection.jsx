@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getProductById } from 'middlewares/getData';
-import ItemDetailContainer from 'components/product/itemDetailContainer/ItemDetailContainer';
+import ItemDetail from 'components/item/itemDetail/ItemDetail';
 
 const ItemCollection = () => {
 
@@ -28,7 +28,7 @@ const ItemCollection = () => {
     }, [id]);
 
     return (
-        <ItemDetailContainer product={product} />
+        <ItemDetail product={product} currency={`USD`} />
     );
 }
 
