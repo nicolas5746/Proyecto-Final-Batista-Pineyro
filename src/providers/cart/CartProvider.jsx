@@ -59,6 +59,9 @@ const CartProvider = ({ children }) => {
 
     const handleDecreaseItem = (id) => {
         cart.forEach(item => {
+            if (item.quantity === 0) {
+                handleRemoveFromCart(item.id);
+            }
             if (item.id === id) {
                 item.quantity === 0
                     ?
@@ -67,11 +70,6 @@ const CartProvider = ({ children }) => {
                     item.quantity -= 1;
             }
             setCart([...cart]);
-        });
-        cart.forEach(item => {
-            if (item.quantity === 0) {
-                handleRemoveFromCart(item.id);
-            }
         });
     }
 

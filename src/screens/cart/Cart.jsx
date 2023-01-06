@@ -18,7 +18,7 @@ const Cart = () => {
                         <AddToCartIcon quantity={`0`} />
                         {`Tu carrito está vacío!`}
                     </div>
-                    <Link to='/'>
+                    <Link to={`/`}>
                         <BlueButton
                             text={`Continuar comprando`}
                             style={{ width: '15%' }}

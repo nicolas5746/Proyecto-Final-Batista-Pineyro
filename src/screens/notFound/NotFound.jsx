@@ -10,7 +10,7 @@ const NotFound = () => {
         <div className='notFound'>
             <h1>{text[1]}</h1>
             <p>{text[2]}</p>
-            <Link to='/'>
+            <Link to={`/`}>
                 <HomeButton text={text[0]} />
             </Link>
         </div>

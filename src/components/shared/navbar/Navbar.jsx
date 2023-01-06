@@ -15,7 +15,7 @@ const Navbar = () => {
 
     let home = `Inicio`;
     let title = `Tienda Americana`;
-    let logoSrc = `https://raw.githubusercontent.com/nicolas5746/PreEntrega1-Batista-Pineyro/master/public/images/logo.png`;
+    let logoSrc = `https://raw.githubusercontent.com/nicolas5746/Proyecto-Final-Batista-Pineyro/master/public/images/logo.png`;
     let logoAlt = `Tienda Americana`;
     let logoTitle = `Tienda Americana`;
 
