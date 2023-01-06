@@ -10,7 +10,11 @@ const CartProvider = ({ children }) => {
     }
 
     const isInCart = (id) => {
-        return id !== undefined ? getFromCart(id) : undefined;
+        return id !== undefined
+            ?
+            getFromCart(id)
+            :
+            undefined;
     }
 
     const handleAddToCart = (item) => {
@@ -32,26 +36,43 @@ const CartProvider = ({ children }) => {
     }
 
     const handleSubTotalPrice = (item) => {
-        let subTotal = item.count * item.price;
+        let subTotal = item.quantity * item.price;
         return subTotal;
     }
 
     const handleTotalPrice = () => {
         let total = 0;
         cart.map((item) => {
-            return total += item.price * item.count;
+            return total += item.price * item.quantity;
         });
         return total;
     }
 
-    const handleAddItem = (count, setCount, stock) => {
-        if (count < stock) {
-            setCount(count + 1);
-        }
+    const handleIncreaseItem = (id) => {
+        cart.forEach(item => {
+            if (item.id === id && item.quantity < item.stock) {
+                item.quantity += 1;
+            }
+            setCart([...cart]);
+        });
     }
 
-    const handleRemoveItem = (count, setCount) => {
-        setCount(Math.max(count - 1, 0));
+    const handleDecreaseItem = (id) => {
+        cart.forEach(item => {
+            if (item.id === id) {
+                item.quantity === 0
+                    ?
+                    item.quantity = 0
+                    :
+                    item.quantity -= 1;
+            }
+            setCart([...cart]);
+        });
+        cart.forEach(item => {
+            if (item.quantity === 0) {
+                handleRemoveFromCart(item.id);
+            }
+        });
     }
 
     const values = {
@@ -62,8 +83,8 @@ const CartProvider = ({ children }) => {
         handleClearCart,
         handleSubTotalPrice,
         handleTotalPrice,
-        handleAddItem,
-        handleRemoveItem,
+        handleIncreaseItem,
+        handleDecreaseItem,
     }
 
     return (

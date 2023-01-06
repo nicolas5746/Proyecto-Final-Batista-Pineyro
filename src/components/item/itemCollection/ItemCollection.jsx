@@ -25,7 +25,7 @@ const ItemCollection = () => {
             });
         });
         getProductById(parseInt(id), setProduct);
-    }, [id]);
+    }, [id, setProduct]);
 
     return (
         <ItemDetail product={product} currency={`USD`} />

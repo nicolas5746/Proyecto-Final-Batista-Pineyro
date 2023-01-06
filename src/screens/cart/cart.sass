@@ -1,13 +1,6 @@
 @use 'assets/styles/colours'
 @use 'assets/styles/fonts'
 @use 'assets/styles/styles'
-    
-.cart,
-.noItem
-    align-items: center
-    flex-direction: column
-    justify-content: center
-    text-align: center
 
 .cart
     padding-bottom: 10%
@@ -18,8 +11,16 @@
     font-size: 1.5rem
     font-weight: 600
     display: flex
-    padding: 15%
+    padding-bottom: 5%
+    padding-top: 15%
+
+.cart,
+.noItem
+    align-items: center
+    flex-direction: column
+    justify-content: center
+    text-align: center
 
 @media screen and (max-width: 850px)
     .noItem
-        padding: 25%
+        padding-top: 25%

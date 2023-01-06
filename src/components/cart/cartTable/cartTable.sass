@@ -3,28 +3,58 @@
 @use 'assets/styles/styles'
 
 .yourCart
-    border: 0.1em solid colours.$windows-blue
-    border-radius: 1rem
     color: colours.$windows-blue
     font-family: fonts.$bungee
     font-size: 1.5rem
     font-weight: 800
     margin-bottom: 5%
-    padding: 2%
     text-align: center
     text-transform: uppercase
-    width: 100%
+
+.cartTable
+    background-color: colours.$linen
+
+.tableCard
+    background-color: colours.$gainsboro
+    width: 60vw
+    & img
+        align-items: center
+        display: block
+        height: auto
+        margin: 0 auto
+        width: 50%
 
 .subTotalPrice
     font-size: 1rem
     font-weight: 600
 
 .totalPrice
+    border: 0.2em solid colours.$windows-blue
+    border-radius: 1rem
     font-size: 1.2rem
     font-weight: 800
+    margin-top: 5%
+
+.cartTable,
+.tableCard
+    align-items: center
+    display: flex
 
 .subTotalPrice,
 .totalPrice
     color: colours.$tomato-sauce-red
-    padding: 3%
     text-align: center
+
+.subTotalPrice,
+.totalPrice,
+.tableCard,
+.yourCart
+    padding: 2%
+
+@media screen and (max-width: 850px)
+    .yourCart
+        font-size: 1rem
+
+    .tableCard
+        & img
+            width: 100%

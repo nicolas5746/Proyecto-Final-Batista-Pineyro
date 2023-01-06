@@ -1,22 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import { AddButton, RemoveButton } from 'components/shared/buttons/Buttons';
-import CartBadge from 'components/cart/cartBadge/CartBadge';
+import { AddButton, AddToCartIcon, RemoveButton } from 'components/cart/cartIcons/CartIcons';
 import './itemCount.sass';
 
-const ItemCount = ({ add, remove, itemCount, buyItem, addToCart }) => {
+const ItemCount = ({ addItem, removeItem, quantity }) => {
 
     return (
         <div className='itemCount'>
-            <Link to={`/cart`}>
-                <CartBadge count={itemCount} />
-            </Link>
+            <AddToCartIcon quantity={quantity} />
             <ButtonGroup>
-                <RemoveButton onClick={remove} />
-                <Button color='primary' variant='outlined' fontSize='smaller' onClick={buyItem}>{addToCart}</Button>
-                <AddButton onClick={add} />
+                <RemoveButton onClick={removeItem} />
+                <AddButton onClick={addItem} />
             </ButtonGroup>
         </div>
     );

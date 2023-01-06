@@ -22,7 +22,7 @@ export const getAllProducts = async (productId) => {
 
 export const getProductById = async (id, productId) => {
     try {
-        const getById = (id, i) => i.find((p) => p.id === id);
+        const getById = (id, item) => item.find((item) => item.id === id);
         const result = await getProducts();
         productId(getById(id, result));
     }

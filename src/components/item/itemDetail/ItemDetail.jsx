@@ -1,33 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CartContext } from 'contexts/contexts';
-import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
-import ItemCount from 'components/item/itemCount/ItemCount';
 
 const ItemDetail = ({ product, currency }) => {
-    const { handleAddToCart, handleAddItem, handleRemoveItem } = React.useContext(CartContext);
-    const [itemCount, setItemCount] = React.useState(0);
-    const [selectedCount, setSelectedCount] = React.useState(false);
-
-    let btnStyle = { width: '25%' }
-
-    const handleBuyItem = () => {
-        if (itemCount > 0) {
-            setSelectedCount(true);
-            handleAddToCart({
-                id: product.id,
-                brand: product.brand,
-                name: product.name,
-                image: product.image,
-                category: product.category,
-                colour: product.colour,
-                price: product.price,
-                stock: product.stock,
-                count: itemCount,
-                setCount: setItemCount,
-            });
-        }
-    }
 
     return (
         <div className='container'>
@@ -49,29 +22,6 @@ const ItemDetail = ({ product, currency }) => {
                     <p className='greyHeader'>{`Código del artículo:`} {product.id}</p>
                     <p className='greyHeader'>{`Stock disponible:`} {product.stock}</p>
                 </div>
-                {selectedCount ?
-                    (<>
-                        <Link to='/cart'>
-                            <BlueButton text={`Finalizar compra`} />
-                        </Link>
-                        <Link to='/'>
-                            <WhiteButton text={`Continuar comprando`} />
-                        </Link>
-                    </>)
-                    :
-                    (<>
-                        <ItemCount
-                            add={() => handleAddItem(itemCount, setItemCount, product.stock)}
-                            remove={() => handleRemoveItem(itemCount, setItemCount)}
-                            itemCount={itemCount}
-                            buyItem={() => handleBuyItem()}
-                            addToCart={`agregrar al carrito`}
-                        />
-                        <Link to='/'>
-                            <BlueButton text={`Atrás`} style={btnStyle} />
-                        </Link>
-                    </>)
-                }
             </div>
         </div>
     );

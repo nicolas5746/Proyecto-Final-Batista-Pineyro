@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from 'contexts/contexts';
+import { AddToCartIcon } from 'components/cart/cartIcons/CartIcons';
 import { BlueButton } from 'components/shared/buttons/Buttons';
+import { CartContext } from 'contexts/contexts';
 import CartTable from 'components/cart/cartTable/CartTable';
 import './cart.sass';
 
@@ -9,24 +10,24 @@ const Cart = () => {
 
     const { cartSize } = React.useContext(CartContext);
 
-    let btnStyle = { width: '15%' }
-
-    if (cartSize === 0) {
-        return (
-            <div className='cart'>
-                <div className='noItem'>
-                    {`Tu carrito está vacío!`}
-                </div>
-                <Link to='/'>
-                    <BlueButton text={`Continuar comprando`} style={btnStyle} />
-                </Link>
-            </div>
-        );
-    }
-
     return (
         <div className='cart'>
-            <CartTable currency={`USD`} />
+            {cartSize === 0 ?
+                <>
+                    <div className='noItem'>
+                        <AddToCartIcon quantity={`0`} />
+                        {`Tu carrito está vacío!`}
+                    </div>
+                    <Link to='/'>
+                        <BlueButton
+                            text={`Continuar comprando`}
+                            style={{ width: '15%' }}
+                        />
+                    </Link>
+                </>
+                :
+                <CartTable currency={`USD`} />
+            }
         </div>
     );
 }
