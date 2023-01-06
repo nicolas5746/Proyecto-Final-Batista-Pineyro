@@ -1,11 +1,9 @@
-import ItemCollection from 'components/item/itemCollection/ItemCollection';
+import ItemCollection from 'components/product/itemCollection/ItemCollection';
 
 const Product = () => {
 
     return (
-        <div>
-            <ItemCollection />
-        </div>
+        <ItemCollection />
     );
 }
 

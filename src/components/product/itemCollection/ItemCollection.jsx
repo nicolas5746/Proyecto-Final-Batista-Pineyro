@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getProductById } from 'middlewares/getData';
-import ItemDetail from 'components/item/itemDetail/ItemDetail';
+import ItemDetail from 'components/product/itemDetail/ItemDetail';
 
 const ItemCollection = () => {
 

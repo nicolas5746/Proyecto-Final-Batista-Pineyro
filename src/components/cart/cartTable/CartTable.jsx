@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
 import { CartContext } from 'contexts/contexts';
-import ItemCount from 'components/item/itemCount/ItemCount';
+import ItemCount from 'components/product/itemCount/ItemCount';
 import './cartTable.sass';
 
 const CartTable = ({ currency }) => {

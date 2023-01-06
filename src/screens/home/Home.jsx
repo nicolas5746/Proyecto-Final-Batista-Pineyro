@@ -1,4 +1,4 @@
-import ItemList from 'components/item/itemList/ItemList';
+import ItemList from 'components/product/itemList/ItemList';
 import './home.sass';
 
 const Home = () => {
