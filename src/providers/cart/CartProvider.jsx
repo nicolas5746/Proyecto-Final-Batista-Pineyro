@@ -25,11 +25,6 @@ const CartProvider = ({ children }) => {
     }
 
     const handleRemoveFromCart = (id) => {
-        /*
-            let index =  cart.findIndex(item => item.id === id);
-            cart.splice(index, 1);
-            setCart([...cart]);
-        */
         cart.forEach((item, index) => {
             if (item.id === id) {
                 item.quantity = 1;
@@ -74,12 +69,10 @@ const CartProvider = ({ children }) => {
                     :
                     item.quantity -= 1;
             }
-            setCart([...cart]);
-        });
-        cart.forEach(item => {
-            if (item.quantity === 0) {
+            if (item.id === id && item.quantity === 0) {
                 handleRemoveFromCart(item.id);
             }
+            setCart([...cart]);
         });
     }
 
