@@ -64,8 +64,8 @@ const CartProvider = ({ children }) => {
             if (item.id === id && item.quantity < item.stock) {
                 item.quantity += 1;
             }
-            setCart([...cart]);
         });
+        setCart([...cart]);
     }
 
     const handleDecreaseItem = (id) => {
@@ -80,8 +80,8 @@ const CartProvider = ({ children }) => {
             if (item.id === id && item.quantity === 0) {
                 handleRemoveFromCart(item.id);
             }
-            setCart([...cart]);
         });
+        setCart([...cart]);
     }
 
     const values = {
