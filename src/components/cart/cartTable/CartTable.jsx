@@ -39,8 +39,10 @@ const CartTable = ({ currency }) => {
                             </Link>
                         </div>
                         <div className='mt-4 flex justify-between'>
-                            <h2 className='brand'>{product.brand}</h2>
-                            <p className='name'>{product.name}</p>
+                            <Link to={`/product/${product.id}`}>
+                                <h2 className='brand'>{product.brand}</h2>
+                                <p className='name'>{product.name}</p>
+                            </Link>
                             <p className='category'>{product.category}</p>
                             <p className='colour'>{`Color:`} {product.colour}</p>
                             <p className='greyHeader'>{`Precio unitario:`} {currency} {product.price}</p>
