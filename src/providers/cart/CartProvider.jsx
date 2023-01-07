@@ -25,12 +25,20 @@ const CartProvider = ({ children }) => {
     }
 
     const handleRemoveFromCart = (id) => {
-        cart.forEach((item, index) => {
-            if (item.id === id) {
-                item.quantity = 1;
-                cart.splice(index, 1);
-            }
-        });
+        if (window.confirm(`¿Desea eliminar éste producto?`)) {
+            cart.forEach((item, index) => {
+                if (item.id === id) {
+                    item.quantity = 1;
+                    cart.splice(index, 1);
+                }
+            });
+        } else {
+            cart.forEach(item => {
+                if (item.id === id && item.quantity === 0) {
+                    handleIncreaseItem(item.id);
+                }
+            });
+        }
         setCart([...cart]);
     }
 
