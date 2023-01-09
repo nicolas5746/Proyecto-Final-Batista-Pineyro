@@ -26,10 +26,10 @@ const CartProvider = ({ children }) => {
 
     const handleRemoveFromCart = (id) => {
         if (window.confirm(`¿Desea eliminar éste producto?`)) {
-            cart.forEach((item, index) => {
+            cart.forEach((item, remove) => {
                 if (item.id === id) {
                     item.quantity = 1;
-                    cart.splice(index, 1);
+                    cart.splice(remove, 1);
                 }
             });
         } else {
@@ -61,8 +61,13 @@ const CartProvider = ({ children }) => {
 
     const handleIncreaseItem = (id) => {
         cart.forEach(item => {
-            if (item.id === id && item.quantity < item.stock) {
-                item.quantity += 1;
+            if (item.id === id) {
+                if (item.quantity === item.stock) {
+                    alert(`Haz alcanzado el límite de stock!`);
+                }
+                if (item.quantity < item.stock) {
+                    item.quantity += 1;
+                }
             }
         });
         setCart([...cart]);
@@ -76,9 +81,9 @@ const CartProvider = ({ children }) => {
                     item.quantity = 0
                     :
                     item.quantity -= 1;
-            }
-            if (item.id === id && item.quantity === 0) {
-                handleRemoveFromCart(item.id);
+                if (item.quantity === 0) {
+                    handleRemoveFromCart(item.id);
+                }
             }
         });
         setCart([...cart]);

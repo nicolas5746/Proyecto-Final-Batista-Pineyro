@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { getAllProducts } from 'middlewares/getData';
 import Greeting from 'components/home/greeting/Greeting';
-import Item from 'components/product/item/Item';
+import ItemCollection from 'components/product/itemCollection/ItemCollection';
 import Search from 'components/home/search/Search';
 
 const ItemList = () => {
@@ -40,12 +40,12 @@ const ItemList = () => {
                         .filter((item) => item.category === sortBy)
                         .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
                         .map((item) =>
-                            <Item product={item} currency={`usd`} />)
+                            <ItemCollection product={item} currency={`usd`} />)
                     :
                     products
                         .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
                         .map((item) =>
-                            <Item product={item} currency={`usd`} />)
+                            <ItemCollection product={item} currency={`usd`} />)
                 }
             </div>
         </div>

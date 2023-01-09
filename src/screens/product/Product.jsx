@@ -1,9 +1,9 @@
-import ItemCollection from 'components/product/itemCollection/ItemCollection';
+import ItemDetail from 'components/product/itemDetail/ItemDetail';
 
 const Product = () => {
 
     return (
-        <ItemCollection />
+        <ItemDetail />
     );
 }
 
