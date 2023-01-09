@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BlueButton, WhiteButton } from 'components/shared/buttons/Buttons';
 import { CartContext } from 'contexts/contexts';
+import IsinCart from 'components/cart/isInCart/IsInCart';
 
 const Item = ({ product, currency }) => {
 
@@ -45,23 +45,7 @@ const Item = ({ product, currency }) => {
                 <h2 className='brand'>{product.brand}</h2>
                 <p className='name'>{product.name}</p>
                 <p className='price' >{currency} {product.price}</p>
-                {added ?
-                    (<>
-                        <Link to='/cart'>
-                            <WhiteButton
-                                style={{ textTransform: 'uppercase', width: '120%' }}
-                                text={`Ir al carrito`} />
-                        </Link>
-                    </>)
-                    :
-                    (<>
-                        <BlueButton
-                            style={{ textTransform: 'uppercase' }}
-                            text={`agregar al carrito`}
-                            onClick={() => handleAddItem()}
-                        />
-                    </>)
-                }
+                <IsinCart added={added} onClick={() => handleAddItem()} />
             </div>
         </div>
     );
