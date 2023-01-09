@@ -63,7 +63,7 @@ const CartProvider = ({ children }) => {
         cart.forEach(item => {
             if (item.id === id) {
                 if (item.quantity === item.stock) {
-                    alert(`Haz alcanzado el límite de stock!`);
+                    alert(`No hay más stock disponible para éste artículo!`);
                 }
                 if (item.quantity < item.stock) {
                     item.quantity += 1;
