@@ -1,8 +1,15 @@
-export const firebaseConfig = {
-    apiKey: 'AIzaSyB5VQHifVkvDPea8FS5Z9ntUJyQHv2-BUM',
-    authDomain: 'proyecto-final-batista-pineyro.firebaseapp.com',
-    projectId: 'proyecto-final-batista-pineyro',
-    storageBucket: 'proyecto-final-batista-pineyro.appspot.com',
-    messagingSenderId: '959135257537',
-    appId: '1:959135257537:web:6550eb47c2675e209fd540'
+import { getFirestore } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+    apiKey: 'AIzaSyBU6hok26ZC6WU3bRsLfyn26PxEHX1X6q8',
+    authDomain: 'e-commerce-batista-93d9d.firebaseapp.com',
+    projectId: 'e-commerce-batista-93d9d',
+    storageBucket: 'e-commerce-batista-93d9d.appspot.com',
+    messagingSenderId: '615530385855',
+    appId: '1:615530385855:web:e35c42ef17a55d544b910a'
 }
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);

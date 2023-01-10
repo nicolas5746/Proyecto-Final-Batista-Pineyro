@@ -1,34 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
-import { getAllProducts } from 'middlewares/getData';
+import { CartContext } from 'contexts/contexts';
 import Greeting from 'components/home/greeting/Greeting';
 import Item from 'components/product/item/Item';
 import Search from 'components/home/search/Search';
 
 const ItemList = () => {
 
-    const [products, setProducts] = React.useState([]);
     const [filter, setFilter] = React.useState('');
 
-    const { sortBy } = useParams();
+    const { items, getItems } = React.useContext(CartContext);
+
+    let { sortBy } = useParams();
 
     React.useEffect(() => {
-
-        const db = getFirestore();
-
-        const itemCollectionRef = collection(db, 'ItemCollection');
-
-        getDocs(itemCollectionRef).then((snapshot) => {
-            if (snapshot.size === 0) {
-                alert(`Sin resultados!`);
-            }
-            snapshot.docs.map((doc) => {
-                return ({ sortBy: doc.category, ...doc.data() });
-            });
-        });
-        getAllProducts(setProducts);
-    }, [sortBy, setProducts]);
+        getItems();
+    }, [getItems]);
 
     return (
         <div className='mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -36,16 +23,16 @@ const ItemList = () => {
             <Search filter={filter} setFilter={setFilter} />
             <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
                 {sortBy ?
-                    products
+                    items
                         .filter((item) => item.category === sortBy)
                         .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
                         .map((item) =>
-                            <Item product={item} currency={`usd`} />)
+                            <Item item={item} />)
                     :
-                    products
+                    items
                         .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
                         .map((item) =>
-                            <Item product={item} currency={`usd`} />)
+                            <Item item={item} />)
                 }
             </div>
         </div>

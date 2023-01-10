@@ -1,9 +1,25 @@
 import React from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from 'middlewares/firebase/firebaseConfig';
 import { CartContext } from 'contexts/contexts';
 
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = React.useState([]);
+    const [items, setItems] = React.useState([]);
+
+    const getItems = async () => {
+        const itemsRef = collection(db, 'items');
+        await getDocs(itemsRef)
+            .then((snapshot) => {
+                if (snapshot.size === 0) {
+                    alert(`No hay resultados!`);
+                }
+                setItems(snapshot.docs.map((doc) => {
+                    return ({ id: doc.id, ...doc.data() });
+                }));
+            });
+    }
 
     const getFromCart = (id) => {
         return cart.find(item => item.id === id);
@@ -90,8 +106,10 @@ const CartProvider = ({ children }) => {
     }
 
     const values = {
-        cartSize: cart.length,
         cart,
+        cartSize: cart.length,
+        items,
+        getItems,
         handleAddToCart,
         handleRemoveFromCart,
         handleClearCart,
