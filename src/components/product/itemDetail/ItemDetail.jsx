@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { CartContext } from 'contexts/contexts';
+import { ItemContext } from 'contexts/contexts';
 
 const ItemDetail = () => {
 
-    const { items, getItems } = React.useContext(CartContext);
+    const { items, getItems } = React.useContext(ItemContext);
 
     let { id } = useParams();
 
@@ -29,12 +29,12 @@ const ItemDetail = () => {
                         <div className='mt-4 flex justify-between'>
                             <h2 className='brand'>{item.brand}</h2>
                             <p className='name'>{item.name}</p>
+                            <p className='greyHeader'>{`Código del artículo:`} {item.id}</p>
                             <p className='category'>{item.category}</p>
                             <p className='colour'>{`color:`} {item.colour}</p>
                             <p className='price'>{`usd`} {item.price}</p>
-                            <p className='greyHeader'>{`Talles disponibles:`} {item.size + ``}</p>
-                            <p className='greyHeader'>{`Código del artículo:`} {item.id}</p>
                             <p className='greyHeader'>{`Stock disponible:`} {item.stock}</p>
+                            <p className='greyHeader'>{`Talles disponibles:`} {item.size + ``}</p>
                         </div>
                     </div>
                 ))}
