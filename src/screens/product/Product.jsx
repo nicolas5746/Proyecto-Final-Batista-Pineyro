@@ -5,17 +5,17 @@ import Spinner from 'components/shared/spinner/Spinner';
 
 const Product = () => {
 
-    const { loaded } = React.useContext(ItemContext);
+    const { items } = React.useContext(ItemContext);
 
     return (
         <>
-            {loaded === true ?
+            {items.length > 0
+                ?
                 <ItemDetail />
                 :
                 <Spinner />
             }
         </>
-
     );
 }
 

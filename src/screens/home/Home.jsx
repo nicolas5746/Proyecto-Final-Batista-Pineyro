@@ -6,11 +6,12 @@ import './home.sass';
 
 const Home = () => {
 
-  const { loaded } = React.useContext(ItemContext);
+  const { items } = React.useContext(ItemContext);
 
   return (
     <main className='home'>
-      {loaded === true ?
+      {items.length > 0
+        ?
         <ItemList />
         :
         <Spinner />

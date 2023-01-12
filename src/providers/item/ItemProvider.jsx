@@ -9,17 +9,14 @@ const ItemProvider = ({ children }) => {
     const [loaded, setLoaded] = React.useState(false);
 
     const getItems = async () => {
-        setLoaded(true);
         const itemsRef = collection(database, 'items');
         await getDocs(itemsRef)
             .then((snapshot) => {
                 if (snapshot.size === 0) {
                     alert(`Error al cargar datos. Intente nuevamente.`);
                 }
-                setLoaded(false);
-                setItems(snapshot.docs.map((doc) => {
-                    return ({ id: doc.id, ...doc.data() });
-                }));
+                setItems(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+                setLoaded(true); 
             });
     }
 

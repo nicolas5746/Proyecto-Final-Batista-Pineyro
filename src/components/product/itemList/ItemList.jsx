@@ -22,11 +22,17 @@ const ItemList = () => {
             <Greeting greeting={`Las mejores marcas al mejor precio`} />
             <Search filter={filter} setFilter={setFilter} />
             <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
-                {items
-                    .filter((item) => item.category === sortBy)
-                    .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
-                    .map((item) =>
-                        <Item item={item} />)
+                {sortBy ?
+                    items
+                        .filter((item) => item.category === sortBy)
+                        .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
+                        .map((item) =>
+                            <Item item={item} />)
+                    :
+                    items
+                        .filter((item) => item.brand.toLowerCase().match(filter.toLowerCase()))
+                        .map((item) =>
+                            <Item item={item} />)
                 }
             </div>
         </div>
